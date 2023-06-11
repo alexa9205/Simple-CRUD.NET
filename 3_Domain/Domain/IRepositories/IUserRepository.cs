@@ -12,5 +12,6 @@ namespace Domain.IRepositories
         void Update(User user);
         void Delete(int id);
         void Create(User user);
+        IEnumerable<User> GetAll();
     }
 }

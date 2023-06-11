@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Domain;
 using Domain.IRepositories;
 using InfrastructureData.DBModel;
@@ -12,6 +13,19 @@ namespace InfrastructureData
         public UserRepository(PersonsEntities context)
         {
             _context = context;
+        }
+
+        public IEnumerable<User> GetAll()
+        {
+            return _context.Persona
+                .Select(p => new User
+                {
+                    Id = p.Id,
+                    Name = p.Nombre,
+                    Surname = p.Apellido,
+                    Age = p.Edad
+                })
+                .ToList();
         }
 
         public User GetById(int id)

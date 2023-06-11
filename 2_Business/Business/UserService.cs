@@ -18,6 +18,11 @@ namespace Business
             _userRepository = userRepository;
         }
 
+        public IEnumerable<User> GetAll()
+        {
+            return _userRepository.GetAll();
+        }
+
         public User GetById(int userId)
         {
             return _userRepository.GetById(userId);

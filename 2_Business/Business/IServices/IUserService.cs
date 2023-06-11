@@ -13,5 +13,6 @@ namespace Business.IServices
         void CreateUser(User user);
         void UpdateUser(User user);
         void DeleteUser(int userId);
+        IEnumerable<User> GetAll();
     }
 }
